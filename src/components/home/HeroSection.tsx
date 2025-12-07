@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Search, ArrowRight, BookOpen, Users, FileText, Sparkles } from "lucide-react";
 import { useState } from "react";
+import YearQuickLinks from "./YearQuickLinks"; // Import the new component
 
 const HeroSection = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -21,8 +22,8 @@ const HeroSection = () => {
       <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-pulse-slow" />
       <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: "2s" }} />
       
-      {/* Floating Elements */}
-      <div className="absolute top-40 right-20 hidden lg:block animate-float">
+      {/* Floating Elements (Re-enabled the floating blocks) */}
+      {/* <div className="absolute top-40 right-20 hidden lg:block animate-float">
         <div className="glass rounded-2xl p-4 shadow-lg">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-lg bg-emerald-500/20 flex items-center justify-center">
@@ -34,9 +35,9 @@ const HeroSection = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
       
-      <div className="absolute bottom-40 left-20 hidden lg:block animate-float" style={{ animationDelay: "3s" }}>
+      {/* <div className="absolute bottom-40 left-20 hidden lg:block animate-float" style={{ animationDelay: "3s" }}>
         <div className="glass rounded-2xl p-4 shadow-lg">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-lg bg-amber-500/20 flex items-center justify-center">
@@ -48,44 +49,69 @@ const HeroSection = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
-          {/* Badge */}
-          <Badge variant="glass" className="mb-6 animate-fade-in">
-            <Sparkles className="w-3 h-3 mr-1" />
-            PICT Autonomous 2024-25
-          </Badge>
+          
+          
 
           {/* Headline */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold mb-6 animate-slide-up">
-            Your One-Stop
+            Everything you need 
             <br />
-            <span className="gradient-text">Academic Universe</span>
+            <span className="gradient-text">to score higher</span>
           </h1>
 
           {/* Subheadline */}
           <p className="text-lg sm:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto animate-slide-up" style={{ animationDelay: "0.1s" }}>
-            Access previous year questions, curated notes, AI-powered predictions, and connect with fellow students — all in one place.
+            PYQs, notes, AI predictions, and student collaboration
           </p>
 
-          {/* Search Bar */}
           <div className="max-w-xl mx-auto mb-8 animate-slide-up" style={{ animationDelay: "0.2s" }}>
-            <div className="relative">
-              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
-              <input
-                type="text"
-                placeholder="Search subjects, modules, or questions..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full h-14 pl-12 pr-32 rounded-2xl border border-border bg-card/80 backdrop-blur-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
-              />
-              <Button variant="gradient" className="absolute right-2 top-1/2 -translate-y-1/2">
-                Search
-              </Button>
-            </div>
-          </div>
+  <div className="
+    relative group 
+    hover:rounded-full 
+    transition-all duration-300 
+    hover:glow-primary
+  "> 
+    <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+
+    <input
+      type="text"
+      placeholder="Search subjects, modules, or questions..."
+      value={searchQuery}
+      onChange={(e) => setSearchQuery(e.target.value)}
+      className="
+        w-full h-14 pl-12 pr-32 
+        rounded-2xl 
+        border border-border 
+        bg-card/80 
+        backdrop-blur-sm 
+        text-foreground 
+        placeholder:text-muted-foreground 
+        focus:outline-none 
+        focus:ring-2 focus:ring-primary/50 
+        transition-all 
+        group-hover:rounded-full
+      " 
+    />
+
+    <Button 
+      variant="gradient" 
+      size="lg"
+      className="
+        absolute right-2 top-1/2 -translate-y-1/2
+        
+        group-hover:rounded-full 
+        
+      "
+    >
+      Search
+    </Button>
+  </div>
+</div>
+
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16 animate-slide-up" style={{ animationDelay: "0.3s" }}>
@@ -118,6 +144,10 @@ const HeroSection = () => {
               </div>
             ))}
           </div>
+
+          {/* NEW: Year Selection Component */}
+          <YearQuickLinks />
+          
         </div>
       </div>
     </section>

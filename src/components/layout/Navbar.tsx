@@ -11,39 +11,52 @@ import {
   Menu,
   X,
   GraduationCap,
-  Search
+  LogOut
 } from "lucide-react";
+import ProfileDropdown from "./ProfileDropdown"; // Import the new component
 
 const navItems = [
   { name: "PYQs", href: "/pyqs", icon: FileText },
   { name: "Notes", href: "/notes", icon: BookOpen },
   { name: "AI Predict", href: "/predict", icon: Sparkles },
-  { name: "Lab & Viva", href: "/lab", icon: FlaskConical },
-  { name: "Forum", href: "/forum", icon: MessageSquare },
+  // { name: "Lab & Viva", href: "/lab", icon: FlaskConical },
+  // { name: "Forum", href: "/forum", icon: MessageSquare },
   { name: "Updates", href: "/updates", icon: Bell },
 ];
+
+// Define a quick placeholder function for the mobile log out button 
+const handleMobileLogout = () => {
+  // This should ideally be a global function or passed down via context
+  alert("Logging out... (Placeholder)");
+  window.location.href = "/";
+};
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
 
+  // FIX: Conditional rendering logic to hide Navbar on the login page (root route '/')
+  const isLoginPage = location.pathname === '/';
+  if (isLoginPage) {
+    return null;
+  }
+  
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 glass border-b border-border/50">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 group">
+          <Link to="/home" className="flex items-center gap-2 group">
             <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
               <GraduationCap className="w-6 h-6 text-primary-foreground" />
             </div>
             <span className="font-bold text-xl hidden sm:block">
-              <span className="gradient-text">PICT</span>
-              <span className="text-foreground"> Academic</span>
+              <span className="text-foreground"> PICT-ACADVERSE</span>
             </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-1">
+          <div className="hidden lg:flex items-center gap-10">
             {navItems.map((item) => {
               const isActive = location.pathname === item.href;
               return (
@@ -61,16 +74,15 @@ const Navbar = () => {
             })}
           </div>
 
-          {/* Search & CTA */}
-          <div className="hidden md:flex items-center gap-3">
-            <Button variant="ghost" size="icon" className="rounded-full">
-              <Search className="w-5 h-5" />
-            </Button>
+          {/* Dashboard CTA & Profile Dropdown */}
+          <div className="hidden md:flex items-center gap-5">
             <Link to="/dashboard">
               <Button variant="gradient" size="sm">
                 Dashboard
               </Button>
             </Link>
+            {/* Profile Dropdown is placed here */}
+            <ProfileDropdown />
           </div>
 
           {/* Mobile Menu Button */}
@@ -107,6 +119,11 @@ const Navbar = () => {
                   Go to Dashboard
                 </Button>
               </Link>
+              {/* Added Logout to Mobile Menu */}
+              <Button variant="ghost" className="w-full justify-start mt-2" onClick={handleMobileLogout}>
+                    <LogOut className="w-5 h-5 mr-3 text-destructive" />
+                    Log Out
+                </Button>
             </div>
           </div>
         )}

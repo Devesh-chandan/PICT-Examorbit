@@ -90,6 +90,9 @@
 
     --gradient-glass: linear-gradient(135deg, hsl(224 71% 8% / 0.9) 0%, hsl(224 71% 8% / 0.7) 100%);
 
+    --shadow-glow: 0 0 40px hsl(239 84% 67% / 0.5); 
+    --shadow-accent-glow: 0 0 40px hsl(173 80% 40% / 0.5); 
+
     --sidebar-background: 224 71% 6%;
     --sidebar-foreground: 220 14% 96%;
     --sidebar-primary: 239 84% 67%;
@@ -173,6 +176,14 @@
 
   .glow-accent {
     box-shadow: var(--shadow-accent-glow);
+  }
+  
+  /* New utility for search bar glow on hover */
+  .hover-shadow-glow-primary {
+    @apply transition-shadow duration-300;
+  }
+  .hover-shadow-glow-primary:hover {
+    box-shadow: var(--shadow-glow);
   }
 }
 

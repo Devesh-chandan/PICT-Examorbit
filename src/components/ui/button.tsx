@@ -15,7 +15,8 @@ const buttonVariants = cva(
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        gradient: "bg-gradient-to-r from-primary to-purple-500 text-white hover:opacity-90 hover:shadow-lg hover:-translate-y-0.5",
+        // Modified: Added scale-105 for "big" effect, removed -translate-y-0.5 for no "downward" movement
+        gradient: "bg-gradient-to-r from-primary to-purple-500 text-white hover:opacity-90 hover:shadow-xl hover:scale-105",
         accent: "bg-accent text-accent-foreground hover:bg-accent/90 hover:shadow-lg hover:-translate-y-0.5",
         glass: "bg-card/80 backdrop-blur-sm border border-border/50 text-foreground hover:bg-card",
         hero: "bg-gradient-to-r from-primary via-purple-500 to-accent text-white font-bold hover:shadow-xl hover:-translate-y-1",

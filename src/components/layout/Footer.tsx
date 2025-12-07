@@ -13,7 +13,8 @@ const Footer = () => {
                 <GraduationCap className="w-6 h-6 text-primary-foreground" />
               </div>
               <span className="font-bold text-xl">
-                <span className="gradient-text">PICT</span> Academic
+                {/* <span className="gradient-text"></span>  */}
+                PICT-ACADVERSE
               </span>
             </Link>
             <p className="text-muted-foreground text-sm">
@@ -27,7 +28,7 @@ const Footer = () => {
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li><Link to="/pyqs" className="hover:text-primary transition-colors">PYQ Repository</Link></li>
               <li><Link to="/notes" className="hover:text-primary transition-colors">Notes Vault</Link></li>
-              <li><Link to="/lab" className="hover:text-primary transition-colors">Lab & Viva Bank</Link></li>
+              {/* <li><Link to="/lab" className="hover:text-primary transition-colors">Lab & Viva Bank</Link></li> */}
               <li><Link to="/predict" className="hover:text-primary transition-colors">AI Predictions</Link></li>
             </ul>
           </div>
@@ -61,7 +62,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-border mt-8 pt-8 text-center text-sm text-muted-foreground">
-          <p>© 2024 PICT Academic Universe. Made with ❤️ for students.</p>
+          <p>© 2025 PICT ACADVERSE. Made with ❤️ for students.</p>
         </div>
       </div>
     </footer>

@@ -147,6 +147,18 @@ const DropdownMenuLabel = React.forwardRef<
 ));
 DropdownMenuLabel.displayName = DropdownMenuPrimitive.Label.displayName;
 
+const DropdownMenuDescription = React.forwardRef<
+  React.ElementRef<'p'>, 
+  React.ComponentPropsWithoutRef<'p'>
+>(({ className, ...props }, ref) => (
+  <p
+    ref={ref}
+    className={cn("px-2 py-1.5 text-sm text-muted-foreground", className)}
+    {...props}
+  />
+));
+DropdownMenuDescription.displayName = "DropdownMenuDescription";
+
 const DropdownMenuSeparator = React.forwardRef<
   React.ElementRef<typeof DropdownMenuPrimitive.Separator>,
   React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Separator>
@@ -176,4 +188,5 @@ export {
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
   DropdownMenuRadioGroup,
+  DropdownMenuDescription,
 };

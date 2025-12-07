@@ -72,10 +72,7 @@ const FeaturesSection = () => {
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <Badge variant="glass" className="mb-4">
-            <Sparkles className="w-3 h-3 mr-1" />
-            Features
-          </Badge>
+          
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
             Everything You Need to
             <span className="gradient-text"> Ace Your Exams</span>

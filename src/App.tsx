@@ -12,6 +12,7 @@ import Lab from "./pages/Lab";
 import Forum from "./pages/Forum";
 import Updates from "./pages/Updates";
 import NotFound from "./pages/NotFound";
+import AuthLanding from "./pages/AuthLanding"; // Import the new AuthLanding component
 
 const queryClient = new QueryClient();
 
@@ -22,7 +23,8 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Index />} />
+          <Route path="/" element={<AuthLanding />} /> {/* Set AuthLanding as the new root page */}
+          <Route path="/home" element={<Index />} /> {/* Move original Index to /home */}
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/pyqs" element={<PYQs />} />
           <Route path="/notes" element={<Notes />} />
